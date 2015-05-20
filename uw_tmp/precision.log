@@ -1,0 +1,216 @@
+# Info: [9566]: Logging session transcript to file /home/e4kwan/ece327/proj/precision.log
+//  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2008, All Rights Reserved.
+//             Portions copyright 1991-2004 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux e4kwan@ecelinux5.uwaterloo.ca #1 SMP Wed Mar 12 20:03:51 EDT 2014 2.6.18-371.6.1.el5 x86_64
+//  
+//  Start time Thu Mar 27 16:55:33 2014
+# -------------------------------------------------
+# Info: [9566]: Logging session transcript to file /home/e4kwan/ece327/proj/precision.log
+# Info: [9575]: Results directory: /home/e4kwan/ece327/proj/uw_tmp/
+# Info: [9569]: Moving session transcript to file /home/e4kwan/ece327/proj/uw_tmp/precision.log
+# Info: [15291]:  Setting up the design to use synthesis library "cycloneii.syn"
+# Info: [566]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+# Info:  Setting Part to: "EP2C35F672C"
+# Info:  Setting Process to: "7"
+# Info: USING DESIGN ARCH
+# Info: [3021]: Reading file: /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+# Info: [618]: Loading library initialization file /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [40000]: vhdlorder, Release 2008a.22
+# Info: [40000]: Files sorted successfully.
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2008a.22
+# Info: [42502]: Analyzing input file "/home/e4kwan/ece327/proj/mem.vhd" ...
+# Info: [42502]: Analyzing input file "/home/e4kwan/ece327/proj/kirsch_synth_pkg.vhd" ...
+# Info: [42502]: Analyzing input file "/home/e4kwan/ece327/proj/kirsch.vhd" ...
+# Info: [641]: Current working directory: /home/e4kwan/ece327/proj/uw_tmp/.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2008a.22
+# Info: [40000]: Last compiled on Nov 27 2008 12:40:04
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2008a.22
+# Info: [40000]: Last compiled on Nov 27 2008 12:46:53
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.kirsch(main): Pre-processing...
+# Info: [44506]: Module work.max8(main): Pre-processing...
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 15: signal difference has never been used.
+# Info: [44506]: Module work.max10(main): Pre-processing...
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 48: signal difference has never been used.
+# Info: [44506]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
+# Info: [45251]: Built-in hardware memory core inferred for variable ': mem.mem depth = 256, width = 8'.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 139: signal i3 has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 139: signal i4 has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 139: signal i5 has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 139: signal i6 has never been used.
+# Warning: [45731]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 81: Output port o_dir has never been assigned a value.
+# Warning: [45731]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 83: Output port o_row has never been assigned a value.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 86: Input port debug_key has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 87: Input port debug_switch has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 115: signal rowsStarted has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 118: signal oldbuffer has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 122: signal maxSets has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 125: signal dirMax has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 126: signal dirMax10 has never been used.
+# Warning: [45730]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 139: signal i1[15:0] has no drivers, will be treated as don't care.
+# Warning: [45730]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 139: signal i2[15:0] has no drivers, will be treated as don't care.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 140: signal r2 has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 140: signal r11 has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 143: signal top has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 143: signal middle has never been used.
+# Warning: [45729]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 143: signal bottom has never been used.
+# Warning: [45730]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 144: signal add1[15:0] has no drivers, will be treated as don't care.
+# Warning: [45730]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 144: signal add2[15:0] has no drivers, will be treated as don't care.
+# Warning: [45730]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 144: signal add3[15:0] has no drivers, will be treated as don't care.
+# Info: [44508]: Module work.max8(main): Compiling...
+# Info: [44508]: Module work.max10(main): Compiling...
+# Info: [44508]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
+# Info: [44523]: Root Module work.kirsch(main): Compiling...
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[14]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[13]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[12]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[11]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[10]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[9]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[8]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[7]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[6]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[5]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[4]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[3]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[2]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[1]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r4[15] with r4[0]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r9[2] with r9[1]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r9[2] with r9[0]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[14]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[13]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[12]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[11]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[10]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[9]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[8]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[7]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[6]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[5]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[4]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[3]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[2]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[1]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r10[15] with r10[0]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[14]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[13]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[12]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[11]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[10]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[9]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[8]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[7]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[6]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[5]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[4]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[3]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[2]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[1]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r7[15] with r7[0]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[14]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[13]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[12]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[11]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[10]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[9]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[8]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[7]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[6]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[5]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[4]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[3]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[2]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[1]
+# Info: [44812]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 320: Sharing register r5[15] with r5[0]
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[0]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[1]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[2]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[3]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[4]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[5]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[6]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[7]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[8]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[9]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[10]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[11]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[12]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[13]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[14]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) left_val[15]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[0]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[1]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[2]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[3]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[4]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[5]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[6]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[7]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[8]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[9]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[10]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[11]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[12]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[13]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[14]: This input has no drivers, driving zero.
+# Warning: [45438]: Module work.kirsch(main), Instance max1, Net(s) right_val[15]: This input has no drivers, driving zero.
+# Warning: [45733]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 290: Optimizing state bit(s) o_mode[1] to constant 0
+# Warning: [45733]: "/home/e4kwan/ece327/proj/kirsch.vhd", line 290: Optimizing state bit(s) o_mode[0] to constant 1
+# Info: [44846]: Rebalanced Expression Tree...
+# Info: [44842]: Compilation successfully completed.
+# Info: [44835]: Total CPU time taken for compilation: 0.0 secs.
+# Info: [44856]: Total lines of RTL compiled: 484.
+# Info: [44513]: Overall running time 1.0 secs.
+# Info: [641]: Current working directory: /home/e4kwan/ece327/proj/uw_tmp/.
+# Info: [644]: Finished compiling design.
+# Info: -- Saving the design database in uw_tmp/kirsch_gate.xdb
+# Info: [3026]: Writing file: uw_tmp/kirsch_gate.vhd.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: [641]: Current working directory: /home/e4kwan/ece327/proj/uw_tmp/.
+# Info: [4552]: 1 Instances are flattened in hierarchical block .work.kirsch.main.
+# Info: [15002]: Optimizing design view:.work.kirsch.main
+# Warning: [1621]: Port o_dir(0) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_dir(1) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_dir(2) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(0) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(1) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(2) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(3) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(4) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(5) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(6) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: [1621]: Port o_row(7) is connected to a disabled tristate, possibly unconnected Port in design.
+# Warning: Design contains combinatorial loop.
+# Info: [12041]: -- Running timing characterization...
+# Info: [15111]: 1 I/O registers on critical path unpacked.
+# Info: -- Saving the design database in /home/e4kwan/ece327/proj/uw_tmp/kirsch.xdb
+# Info: [3026]: Writing file: /home/e4kwan/ece327/proj/uw_tmp/kirsch.edf.
+# Info: Info, Writing xrf file '/home/e4kwan/ece327/proj/uw_tmp/kirsch.xrf'
+# Info: [3026]: Writing file: /home/e4kwan/ece327/proj/uw_tmp/kirsch.xrf.
+# Info: -- Writing file /home/e4kwan/ece327/proj/uw_tmp/kirsch.tcl
+# Info: exq_pr_compile_project gen_vcf kirsch 1
+# Info: [644]: Finished synthesizing design.
+# Info: [11019]: Total CPU time taken for synthesis: 0.6 secs.
+# Info: [11020]: Overall running time 0.9 secs.
+# Info: /home/e4kwan/ece327/proj/uw_tmp/precision_tech.sdc
+# Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
+# Info: [3026]: Writing file: uw_tmp/kirsch_logic.vhd.
+# Info: Info, Writing xrf file 'uw_tmp/kirsch_logic.xrf'
+# Info: [3026]: Writing file: uw_tmp/kirsch_logic.xrf.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: i_clock
+# Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
+# Info: [3026]: Writing file: uw_tmp/kirsch_logic.v.
+# Info: Warning, Moving uw_tmp/kirsch_logic.xrf to uw_tmp/mgc_old_kirsch_logic.xrf as uw_tmp/kirsch_logic.xrf exists
+# Info: [3026]: Writing file: uw_tmp/kirsch_logic.xrf.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: *** logic synthesis succeeded ***

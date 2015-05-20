@@ -1,0 +1,108 @@
+
+*************************************************************
+
+Library: OPERATORS    Cell: sub_8u_8u_8u_0    View: INTERFACE
+
+*************************************************************
+
+ Number of ports :                      26
+ Number of nets :                       24
+ Number of instances :                   0
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Black Box sub_8u_8u_8u_0 :              1
+
+********************************************************
+
+Library: OPERATORS    Cell: and_4u_4u    View: INTERFACE
+
+********************************************************
+
+ Number of ports :                       5
+ Number of nets :                        0
+ Number of instances :                   0
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Black Box and_4u_4u :                   1
+
+*********************************************************
+
+Library: OPERATORS    Cell: gt_16u_16u    View: INTERFACE
+
+*********************************************************
+
+ Number of ports :                      33
+ Number of nets :                        0
+ Number of instances :                   0
+ Number of references to this view :     2
+
+Total accumulated area : 
+ Black Box gt_16u_16u :                  1
+
+******************************************************
+
+Library: work    Cell: max10    View: main_unfold_1119
+
+******************************************************
+
+  Cell         Library  References     Total Area
+
+ AND2          PRIMITIVES    16 x      1     16 AND2
+ FALSE         PRIMITIVES     1 x      1      1 FALSE
+ gt_16u_16u    OPERATORS      1 x      1      1 gt_16u_16u
+
+ Number of ports :                      49
+ Number of nets :                       34
+ Number of instances :                  18
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Black Box AND2 :                       16
+ Black Box FALSE :                       1
+ Black Box gt_16u_16u :                  1
+ Number of accumulated instances :      18
+
+*******************************************
+
+Library: work    Cell: kirsch    View: main
+
+*******************************************
+
+  Cell             Library  References     Total Area
+
+ AND2              PRIMITIVES    16 x      1     16 AND2
+ DFFE              PRIMITIVES    11 x      1     11 DFFE
+ DFFRSE            PRIMITIVES     9 x      1      9 DFFRSE
+ FALSE             PRIMITIVES     1 x      1      1 FALSE
+ INV               PRIMITIVES     7 x      1      7 INV
+ MUX               PRIMITIVES     1 x      1      1 MUX
+ OR2               PRIMITIVES     1 x      1      1 OR2
+ TRI               PRIMITIVES    11 x      1     11 TRI
+ TRUE              PRIMITIVES     1 x      1      1 TRUE
+ and_4u_4u         OPERATORS      2 x      1      2 and_4u_4u
+ max10             work           1 x     16     16 AND2
+                                           1      1 FALSE
+                                           1      1 gt_16u_16u
+ sub_8u_8u_8u_0    OPERATORS      1 x      1      1 sub_8u_8u_8u_0
+
+ Number of ports :                      95
+ Number of nets :                       80
+ Number of instances :                  62
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Black Box AND2 :                       32
+ Black Box DFFE :                       11
+ Black Box DFFRSE :                      9
+ Black Box FALSE :                       2
+ Black Box INV :                         7
+ Black Box MUX :                         1
+ Black Box OR2 :                         1
+ Black Box TRI :                        11
+ Black Box TRUE :                        1
+ Black Box and_4u_4u :                   2
+ Black Box gt_16u_16u :                  1
+ Black Box sub_8u_8u_8u_0 :              1
+ Number of accumulated instances :      79

@@ -1,0 +1,40 @@
+***********************************************
+Device Utilization for EP2C35F672C
+***********************************************
+Resource                Used    Avail   Utilization
+-----------------------------------------------
+IOs                     95      475      20.00%
+LUTs                    39      33216     0.12%
+Registers               20      33216     0.06%
+Memory Bits             0       483340    0.00%
+DSP block 9-bit elems   0       70        0.00%
+
+-----------------------------------------------
+
+*******************************************
+
+Library: work    Cell: kirsch    View: main
+
+*******************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     cycloneii     1 x
+ NOT                     cycloneii     1 x
+ VCC                     cycloneii     2 x
+ cycloneii_io            cycloneii    66 x      1     66 IOs
+ cycloneii_lcell_comb    cycloneii    31 x      1     31 LUTs
+ cycloneii_lcell_ff      cycloneii    20 x      1     20 Registers
+ sub_8_0                 OPERATORS     1 x      8      8 LUTs
+
+ Number of ports :                      95
+ Number of nets :                      125
+ Number of instances :                 122
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of IOs :                        95
+ Number of LCs :                         0
+ Number of LUTs :                       39
+ Number of Registers :                  20
+ Number of accumulated instances :     130

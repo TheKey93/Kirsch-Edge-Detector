@@ -1,0 +1,365 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity max8 is port (
+	left_val	: in std_logic_vector(15 downto 0);
+	right_val	: in std_logic_vector(15 downto 0);
+	max_val		: out unsigned(15 downto 0);
+	dir 		: out std_logic
+	);
+end max8;
+
+architecture main of max8 is 
+	signal difference : signed (16 downto 0);
+begin 
+	process (right_val, left_val)
+	begin
+		--wait until rising_edge(clock);
+		--difference <= signed("0" & right_val) - signed("0" & left_val);
+		--if difference(16) = '1' then
+		if (left_val > right_val) then
+			max_val <= unsigned(left_val);
+			dir <= '0';
+		else
+			max_val <= unsigned(right_val);
+			dir <= '1';
+		end if;
+		
+	end process;
+end main;
+
+
+library IEEE;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity max10 is port (
+	left_val	: in unsigned(15 downto 0);
+	right_val	: in unsigned(15 downto 0);
+	max_val		: out unsigned(15 downto 0);
+	dir 		: out std_logic
+	);
+end max10;
+
+architecture main of max10 is
+	signal difference : signed (16 downto 0);
+begin 
+	process (right_val, left_val)
+	begin
+		--wait until rising_edge(clock);
+		--difference <= signed("0" & right_val) - signed("0" & left_val);
+		--if difference(16) = '1' then
+		if (left_val > right_val) then
+			max_val <= unsigned(left_val);
+			dir <= '0';
+		else
+			max_val <= unsigned(right_val);
+			dir <= '1';
+		end if;
+		
+	end process;
+end main;
+
+
+library IEEE;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity kirsch is
+  port(
+    ------------------------------------------
+    -- main inputs and outputs
+    i_clock    : in  std_logic;                      
+    i_reset    : in  std_logic;                      
+    i_valid    : in  std_logic;                 
+    i_pixel    : in  std_logic_vector(7 downto 0);
+    o_valid    : out std_logic;                 
+    o_edge     : out std_logic;	                     
+    o_dir      : out std_logic_vector(2 downto 0);                      
+    o_mode     : out std_logic_vector(1 downto 0);
+    o_row      : out std_logic_vector(7 downto 0);
+    ------------------------------------------
+    -- debugging inputs and outputs
+    debug_key      : in  std_logic_vector( 3 downto 1) ; 
+    debug_switch   : in  std_logic_vector(17 downto 0) ; 
+    debug_led_red  : out std_logic_vector(17 downto 0) ; 
+    debug_led_grn  : out std_logic_vector(5  downto 0) ; 
+    debug_num_0    : out std_logic_vector(3 downto 0) ; 
+    debug_num_1    : out std_logic_vector(3 downto 0) ; 
+    debug_num_2    : out std_logic_vector(3 downto 0) ; 
+    debug_num_3    : out std_logic_vector(3 downto 0) ; 
+    debug_num_4    : out std_logic_vector(3 downto 0) ;
+    debug_num_5    : out std_logic_vector(3 downto 0) 
+    ------------------------------------------
+  );  
+end entity;
+
+
+architecture main of kirsch is
+
+	function "rol" ( a : std_logic_vector; n : natural )
+    return std_logic_vector
+  is
+  begin
+    return std_logic_vector( unsigned(a) rol n );
+
+  end function;
+	
+	
+	type tempBuffer is array (2 downto 0) of std_logic_vector(7 downto 0) ;
+	
+	signal currentRow : std_logic_vector(2 downto 0); --:= "001";
+	signal rowsStarted : unsigned (2 downto 0); --:= "001"; 
+	signal column: std_logic_vector (7 downto 0) ;
+	signal increment : std_logic_vector (7 downto 0);
+	signal oldbuffer : tempBuffer; -- left 
+	signal midbuffer : tempBuffer; -- middle 
+	signal newbuffer : tempBuffer; -- right
+	
+	signal maxSets : std_logic_vector(3 downto 0);
+	
+	signal controller : unsigned(7 downto 0); 
+	signal dirMax : std_logic;
+	signal dirMax10 : std_logic;
+	
+	signal writeEnable : std_logic_vector (2 downto 0);
+	signal difference : signed (16 downto 0);
+	-- signal i1, i2, i3, i4, i5, i6 : unsigned (7 downto 0);
+	-- signal r1 : unsigned (7 downto 0);
+	-- signal r2 : unsigned (8 downto 0);
+	-- signal r12 : unsigned (11 downto 0);
+	-- signal r11 : unsigned (12 downto 0);
+	-- signal r3, r6 : unsigned (10 downto 0);
+	-- signal r4, r5, r7, r8 : unsigned (9 downto 0);
+	-- signal r9, r10 : unsigned (15 downto 0);
+	
+	signal i1, i2, i3, i4, i5, i6 : std_logic_vector (15 downto 0);
+	signal r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12 : unsigned (15 downto 0);
+	
+	signal a, b : unsigned (15 downto 0);
+	signal top, middle, bottom: integer range 0 to 2;
+	signal add1, add2, add3 : unsigned(15 downto 0);
+	--signal a, b : unsigned (9 downto 0);
+begin  
+	
+	weAssignments:
+	for I in 0 to 2 generate
+		writeEnable(I) <= i_valid and currentRow(I);
+	end generate weAssignments;
+	
+	max1 : entity work.max8(main)
+	port map (
+		--clock		=> i_clock,
+		left_val	=> i1,
+		right_val 	=> i2,
+		max_val		=> r1,
+		dir			=> dirMax
+	);
+	
+	a <= r5 when controller(3) = '1' else r8;
+	b <= r7 when controller(3) = '1' else r10;
+		--else r10(9 downto 0);
+						
+	max2 : entity work.max10(main)
+	port map (
+		--clock		=> i_clock,
+		left_val	=> a,
+		right_val 	=> b,
+		max_val		=> r8,
+		dir			=> dirMax10
+	);
+	
+	memArray1 : entity work.mem(main)
+    port map (
+      address  => column,
+      clock    => i_clock, 
+      data     => i_pixel,
+	  wren	   => writeEnable(0),
+	  q        => newbuffer(0)
+    );
+	
+	memArray2 : entity work.mem(main)
+    port map (
+      address  => column,
+      clock    => i_clock,
+      data     => i_pixel,
+	  wren	   => writeEnable(1),
+	  q        => newbuffer(1)
+    );
+	
+	memArray3 : entity work.mem(main)
+    port map (
+      address  => column,
+      clock    => i_clock,
+      data     => i_pixel,
+	  wren	   => writeEnable(2)--,
+	  --q        => newbuffer(2)
+    );
+
+	--o_valid <= controller(7);
+	
+	--o_edge <= difference(16);
+	--o_edge <= '1' when ((signed('0' & r9) - signed('0' & r10)) > to_signed(383, 16)) 
+	--		else '0';	
+	-- o_dir <= "001";
+	
+	debug_num_5 <= X"E";
+	debug_num_4 <= X"C";
+	debug_num_3 <= X"E";
+	debug_num_2 <= X"3";
+	debug_num_1 <= X"2";
+	debug_num_0 <= X"7";
+
+	debug_led_red <= (others => '0');
+	debug_led_grn <= (others => '0');
+	
+	-- top <= 0 when currentRow = "100" else
+		   -- 1 when currentRow = "010" else
+		   -- 2 when currentRow = "001" else
+		   -- 0;
+		   
+	-- middle <= 1 when currentRow = "100" else
+		   -- 2 when currentRow = "010" else
+		   -- 0 when currentRow = "001" else
+		   -- 1;
+		   
+	-- bottom <= 2 when currentRow = "100" else
+		   -- 0 when currentRow = "010" else
+		   -- 1 when currentRow = "001" else
+		   -- 2;	
+		   
+	-- --newBuffer(2) <= i_pixel when i_valid = '1' else
+	
+	
+	-- i1 <= 
+		 -- ("00000000" & oldBuffer(middle)) when controller(0) = '1' else
+		 -- ("00000000" & midBuffer(bottom)) when controller(1) = '1' else
+		 -- ("00000000" & newBuffer(middle)) when controller(2) = '1' else
+		 -- ("00000000" & midBuffer(top)) when controller(3) = '1' else
+		 -- "0000000000000000";
+	 
+		 -- -- oldBuffer(2) when i_valid = '1' and currentRow = "100" else
+		 -- -- oldBuffer(1) when i_valid = '1' and currentRow = "010" else
+		 -- -- oldBuffer(0) when i_valid = '1' and currentRow = "001" else
+			
+		 -- -- newBuffer(2) when controller(0) = '1' and currentRow = "100" else
+		 -- -- newBuffer(1) when controller(0) = '1' and currentRow = "010" else
+		 -- -- newBuffer(0) when controller(0) = '1' and currentRow = "001" else
+		 
+		 -- -- newBuffer(0) when controller(1) = '1' and currentRow = "100" else
+		 -- -- newBuffer(2) when controller(1) = '1' and currentRow = "010" else
+		 -- -- newBuffer(1) when controller(1) = '1' and currentRow = "001" else
+		 
+		 -- -- oldBuffer(0) when controller(2) = '1' and currentRow = "100" else;
+		 -- -- oldBuffer(2) when controller(2) = '1' and currentRow = "010" else;
+		 -- -- oldBuffer(1) when controller(2) = '1' and currentRow = "001";
+		 
+	-- i2 <= 
+		 -- ("00000000" & newBuffer(bottom)) when controller(0) = '1' else
+		 -- ("00000000" & newBuffer(top)) when controller(1) = '1' else
+		 -- ("00000000" & oldBuffer(top)) when controller(2) = '1' else
+		 -- ("00000000" & oldBuffer(bottom)) when controller(3) = '1' else
+		 -- "0000000000000000";
+		 
+	-- i3 <= ("00000000" & oldBuffer(bottom));
+	
+	-- i4 <= ("00000000" & midBuffer(bottom));
+	
+	-- i5 <= ("00000000" & newBuffer(bottom)) when controller(0) = '1' else
+		 -- ("00000000" & newBuffer(top)) when controller(1) = '1' else
+		 -- ("00000000" & oldBuffer(top)) when controller(2) = '1' else
+		-- "0000000000000000";		
+		
+	-- i6 <= ("00000000" & newBuffer(bottom)) when controller(0) = '1' else
+		 -- ("00000000" & midBuffer(top)) when controller(1) = '1' else
+		 -- ("00000000" & oldBuffer(middle)) when controller(2) = '1' else
+		 -- "0000000000000000";
+		 
+	 -- add1 <= ((unsigned(i3) and (15 downto 0 => controller(0))) or (r1 and not (15 downto 0 => controller(0))))
+	 -- + ((unsigned(i4) and (15 downto 0 => controller(0))) or (r2 and not (15 downto 0 => controller(0)))) ; 
+	 -- add2 <= ((r4 and (15 downto 0 => controller(3))) or (unsigned(i5) and not (15 downto 0 => controller(3))))
+	 -- + ((r5 and (15 downto 0 => controller(3))) or (unsigned(i6) and not (15 downto 0 => controller(3))));
+	 -- add3 <= ((r11 and not (15 downto 0 => controller(4))) or (r2 and (15 downto 0 => controller(4))) or (r11 and not (15 downto 0 => controller(4))))
+	 -- + ((r12 and ((15 downto 0 => controller(6)) or (15 downto 0 => controller(5)))) or (r3 and (15 downto 0 => controller(4))) or ( r10 and (15 downto 0 => controller(7))));
+	
+	ctrl : process
+	begin
+		wait until rising_edge(i_clock);
+		if (i_reset = '1') then
+			rowsStarted <= "001";
+			currentRow <= "001";
+			column <= B"0000_0000";
+			o_valid <= '0';
+			o_mode <= "01";
+			increment <= "00000001";
+			controller <= "00000000";			
+		elsif (i_valid = '1') then
+			newBuffer(2) <= i_pixel;
+			column <= std_logic_vector(unsigned(column) + unsigned(increment));
+			oldbuffer <= midbuffer;
+			midbuffer <= newbuffer;
+			if (column = b"1111_1111") then
+				currentRow <= currentRow rol 1;				
+			end if;
+		-- state  0 1 2 3 4 5 6 7 
+		-- value  i 0 1 2 3 4 5 6
+			o_valid <= controller(7);
+			controller <= controller(6 downto 0) & i_valid;
+		else
+			o_valid <= controller(6);
+			controller <= controller(6 downto 0) & i_valid;
+		end if;
+		
+	end process;
+	
+	dataflow : process
+	begin
+	wait until rising_edge(i_clock);
+	case (controller(7 downto 4)) is	
+		when "0001" =>
+			r2 <= add1; 
+			r3 <= add2;
+		when "0010" =>
+			r2 <= r3;
+			--r3 <= unsigned(i5) + unsigned(i6); -- a2
+			r3 <= add2;
+			--r4 <= r1 + r2; -- a1
+			r4 <= add1;
+		when "0100" =>
+			r2 <= r3;
+			r5 <= r4;
+			--r3 <= unsigned(i5) + unsigned(i6); -- a2
+			r3 <= add2;
+			--r4 <= r1 + r2; -- a1
+			r4 <= add1;
+		when "1000" =>
+			r6 <= r3;
+			r7 <= r4;
+		when others => 
+	end case;
+	-- =================================================
+	case (controller(7 downto 4)) is	
+		when "0001" =>
+			r10 <= r4;			
+			r9 <= add3;
+			r11 <= r1;
+			r12 <= r6;
+		when "0010" =>
+			r10 <= add3;
+			r12 <= r10;
+		when "0100" =>
+			r10 <= add3;
+			r11 <= r12 sll 1; -- make r11 bigger lol
+		when "1000" =>
+			r9 <= r8 sll 3;
+			r10 <= add3;
+			difference <= signed("0" & r9) - signed("0" & r10) - 384;
+			o_edge <= not difference(16);
+		when others => 		
+	end case;
+	end process;
+  
+end architecture;

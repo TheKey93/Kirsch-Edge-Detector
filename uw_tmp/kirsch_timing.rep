@@ -1,0 +1,74 @@
+                   Clock Frequency Report
+
+	Domain                  Clock Name                            Min Period (Freq)
+	------                  ----------                            -----------------
+	ClockDomain0            i_clock                               3.365 (297.177 MHz)  
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
+-- CTE report summary..
+                  CTE Report Summary
+
+End CTE Report Summary ..... CPU Time Used: 0 sec.
+
+Setup Slack Path Summary
+
+              Data                                                                       Data
+       Setup  Path   Source    Dest.                                                     End 
+Index  Slack  Delay   Clock    Clock      Data Start Pin            Data End Pin         Edge
+-----  -----  -----  -------  -------  ---------------------  -------------------------  ----
+  1    0.635  3.269  i_clock  i_clock  reg_controller(3)/clk  reg_r9(7)/datain           Rise
+  2    1.775  2.129  i_clock  i_clock  reg_r9(8)/clk          reg_difference(16)/datain  Rise
+  3    1.797  2.107  i_clock  i_clock  reg_r9(7)/clk          reg_difference(16)/datain  Rise
+  4    1.855  2.049  i_clock  i_clock  reg_r9(9)/clk          reg_difference(16)/datain  Rise
+  5    1.935  1.969  i_clock  i_clock  reg_r9(10)/clk         reg_difference(16)/datain  Rise
+  6    1.957  1.285  i_clock  i_clock  reg_controller(7)/clk  reg_r9(9)/ena              Rise
+  7    1.960  1.282  i_clock  i_clock  reg_controller(6)/clk  reg_r9(9)/ena              Rise
+  8    2.015  1.889  i_clock  i_clock  reg_r9(11)/clk         reg_difference(16)/datain  Rise
+  9    2.095  1.809  i_clock  i_clock  reg_r9(12)/clk         reg_difference(16)/datain  Rise
+ 10    2.175  1.729  i_clock  i_clock  reg_r9(13)/clk         reg_difference(16)/datain  Rise
+
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
+-- CTE report summary..
+                  CTE Report Summary
+
+Analyzing setup constraint violations 
+End CTE Report Summary ..... CPU Time Used: 0 sec.
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
+-- CTE report timing..
+                  CTE Path Report
+
+
+Critical path #1, (path slack = 0.635):
+
+SOURCE CLOCK: name: i_clock period: 4.000000
+     Times are relative to the 1st rising edge
+  DEST CLOCK: name: i_clock period: 4.000000
+     Times are relative to the 2nd rising edge
+
+NAME                        GATE                     DELAY    ARRIVAL DIR  FANOUT
+reg_controller(3)/clk    cycloneii_lcell_ff                   0.000   up
+reg_controller(3)/regout cycloneii_lcell_ff         0.000     0.000   up
+controller(3)            (net)                      0.650                  25
+ix26296z52929/dataa      cycloneii_lcell_comb                 0.650   up
+ix26296z52929/combout    cycloneii_lcell_comb       0.545     1.195   up
+nx26296z4                (net)                      0.270                   1
+ix26296z52924/datab      cycloneii_lcell_comb                 1.465   up
+ix26296z52924/combout    cycloneii_lcell_comb       0.522     1.987   up
+nx26296z1                (net)                      0.650                  22
+ix26296z52923/datac      cycloneii_lcell_comb                 2.637   up
+ix26296z52923/combout    cycloneii_lcell_comb       0.322     2.959   up
+r8(4)                    (net)                      0.310                   3
+reg_r9(7)/datain         cycloneii_lcell_ff                   3.269   up
+
+		Initial edge separation:      4.000
+		Source clock delay:      -    1.383
+		Dest clock delay:        +    1.383
+		                        -----------
+		Edge separation:              4.000
+		Setup constraint:        -    0.096
+		                        -----------
+		Data required time:           3.904
+		Data arrival time:       -    3.269   ( 42.49% cell delay, 57.51% net delay )
+		                        -----------
+		Slack:                        0.635
+
+End CTE Analysis ..... CPU Time Used: 0 sec.
